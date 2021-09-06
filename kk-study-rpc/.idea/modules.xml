@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../kk-study-api/kk-study-api.iml" filepath="$PROJECT_DIR$/../kk-study-api/kk-study-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../kk-study-netty/kk-study-netty.iml" filepath="$PROJECT_DIR$/../kk-study-netty/kk-study-netty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kk-study-rpc.iml" filepath="$PROJECT_DIR$/kk-study-rpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rpc-study-order-service/rpc-study-order-service.iml" filepath="$PROJECT_DIR$/../rpc-study-order-service/rpc-study-order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rpc-study-sms-service/rpc-study-sms-service.iml" filepath="$PROJECT_DIR$/../rpc-study-sms-service/rpc-study-sms-service.iml" />
+    </modules>
+  </component>
+</project>

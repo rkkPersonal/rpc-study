@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rpc-study-sms-service" />
+        <module name="rpc-study-order-service" />
+        <module name="kk-study-api" />
+        <module name="kk-study-netty" />
+        <module name="kk-study-rpc" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kk-study-api" target="8" />
+      <module name="kk-study-netty" target="8" />
+      <module name="kk-study-rpc" target="8" />
+      <module name="rpc-study-order-service" target="8" />
+      <module name="rpc-study-sms-service" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

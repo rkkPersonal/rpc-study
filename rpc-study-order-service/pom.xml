@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.kk.study</groupId>
+  <artifactId>rpc-study-order-service</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>rpc-study-order-service</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <kk-study-rpc>1.0-SNAPSHOT</kk-study-rpc>
+    <kk.study.api>1.0-SNAPSHOT</kk.study.api>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.kk.rpc</groupId>
+      <artifactId>kk-study-rpc</artifactId>
+      <version>${kk-study-rpc}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kk.study</groupId>
+      <artifactId>kk-study-api</artifactId>
+      <version>${kk.study.api}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
