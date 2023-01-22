@@ -8,6 +8,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.kk.rpc.remoting.handler.NettyHandler;
+import org.kk.rpc.remoting.handler.TrpcServerHandler;
+import org.kk.rpc.rpc.codec.TrpcCodec;
 
 import java.net.InetSocketAddress;
 import java.net.URI;
@@ -17,9 +19,16 @@ import java.net.URI;
  */
 public class Netty4Server implements Server {
 
+    private TrpcCodec trpcCodec;
+    private TrpcServerHandler trpcServerHandler;
 
     EventLoopGroup boss = new NioEventLoopGroup();
     EventLoopGroup worker = new NioEventLoopGroup();
+
+    public Netty4Server(TrpcCodec trpcCodec, TrpcServerHandler trpcServerHandler) {
+        this.trpcCodec=trpcCodec;
+        this.trpcServerHandler=trpcServerHandler;
+    }
 
     @Override
     public void start(URI uri) {

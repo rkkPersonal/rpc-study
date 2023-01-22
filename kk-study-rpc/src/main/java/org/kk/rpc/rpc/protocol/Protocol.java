@@ -9,5 +9,5 @@ import java.net.URI;
  */
 public interface Protocol {
 
-    public Protocol export(URI uri, Invoker invoker);
+    public void export(URI uri, Invoker invoker);
 }

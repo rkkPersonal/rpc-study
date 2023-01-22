@@ -6,6 +6,7 @@ import org.kk.rpc.spring.config.ProtocolConfig;
 import org.kk.rpc.spring.config.ReferenceConfig;
 import org.kk.rpc.spring.config.RegistryConfig;
 import org.kk.rpc.spring.config.ServiceConfig;
+import org.kk.rpc.utils.KkRpcBootStrap;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.context.ApplicationContext;
@@ -33,24 +34,6 @@ public class KkPostProcessor implements ApplicationContextAware, InstantiationAw
 
         return bean;
     }
-
-    private void initConsumerConfig(Object bean) {
-        for (Field declaredField : bean.getClass().getDeclaredFields()) {
-            declaredField.setAccessible(true);
-            if (!declaredField.isAnnotationPresent(KkRpcReference.class)) {
-                continue;
-            }
-            // 引用相关 配置 保存在一个对象里边 // TODO 思考：如果一个引用需要在多个类被使用
-            ReferenceConfig referenceConfig = new ReferenceConfig();
-            referenceConfig.addRegistryConfig(applicationContext.getBean(RegistryConfig.class));
-            referenceConfig.addProtocolConfig(applicationContext.getBean(ProtocolConfig.class));
-            referenceConfig.setService(declaredField.getType());
-
-            KkRpcReference kkRpcReference = declaredField.getAnnotation(KkRpcReference.class);
-            referenceConfig.setLoadbalance(kkRpcReference.loadBalance());
-        }
-    }
-
     private void initProviderConfig(Object bean) {
 
         if (!bean.getClass().isAnnotationPresent(KkRpcService.class)) {
@@ -69,5 +52,28 @@ public class KkPostProcessor implements ApplicationContextAware, InstantiationAw
         } else {
             serviceConfig.setService(kkRpcService.interfaceClass());
         }
+
+        KkRpcBootStrap.export(serviceConfig);
     }
+
+    private void initConsumerConfig(Object bean) {
+        for (Field declaredField : bean.getClass().getDeclaredFields()) {
+            declaredField.setAccessible(true);
+            if (!declaredField.isAnnotationPresent(KkRpcReference.class)) {
+                continue;
+            }
+            // 引用相关 配置 保存在一个对象里边 // TODO 思考：如果一个引用需要在多个类被使用
+            ReferenceConfig referenceConfig = new ReferenceConfig();
+            referenceConfig.addRegistryConfig(applicationContext.getBean(RegistryConfig.class));
+            referenceConfig.addProtocolConfig(applicationContext.getBean(ProtocolConfig.class));
+            referenceConfig.setService(declaredField.getType());
+
+            KkRpcReference kkRpcReference = declaredField.getAnnotation(KkRpcReference.class);
+            referenceConfig.setLoadbalance(kkRpcReference.loadBalance());
+
+
+        }
+    }
+
+
 }

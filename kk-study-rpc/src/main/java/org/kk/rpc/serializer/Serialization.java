@@ -3,7 +3,7 @@ package org.kk.rpc.serializer;
 /**
  * @author Steven
  */
-public interface Serializer {
+public interface Serialization {
 
     byte[] serialize(Object output) throws Exception;
 

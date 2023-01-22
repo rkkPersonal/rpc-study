@@ -48,6 +48,11 @@ public class ServiceConfig {
         this.protocolConfigs.add(protocolConfig);
     }
 
+    /**
+     * 接口
+     *
+     * @return
+     */
     public Class getService() {
         return service;
     }
@@ -56,6 +61,9 @@ public class ServiceConfig {
         this.service = service;
     }
 
+    /**
+     * 类
+     */
     public Object getReference() {
         return reference;
     }

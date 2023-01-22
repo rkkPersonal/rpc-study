@@ -1,26 +1,22 @@
-/*
 package org.kk.rpc;
 
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-*/
 /**
  * Unit test for simple App.
- *//*
+ */
 
-public class AppTest 
-{
-    */
-/**
+public class AppTest {
+    /**
      * Rigorous Test :-)
-     *//*
+     */
 
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void shouldAnswerWithTrue() {
+
+
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext("");
+
+        annotationConfigApplicationContext.start();
     }
 }
-*/
